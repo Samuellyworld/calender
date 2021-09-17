@@ -86,11 +86,34 @@ document.querySelector('#next-year').onclick = () => {
 
 let dark_mode_toggle = document.querySelector('.dark-mode-switch')
 
+var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+if (storedTheme) {
+    document.querySelector('body').setAttribute('class', storedTheme)
+}
+   
+
 dark_mode_toggle.onclick = () => {
-    document.querySelector('body').classList.toggle('light')
-    document.querySelector('body').classList.toggle('dark')
+    var currentTheme = document.querySelector("body").getAttribute("class");
+    var targetTheme = "light";
+
+    if (currentTheme === "light") {
+        targetTheme = "dark";
+        document.querySelector('body').classList.remove('light')
+        document.querySelector('body').classList.add('dark')
+        localStorage.setItem('theme', targetTheme)
+    }
+    
+   if (currentTheme === "dark") {
+        targetTheme = "light";
+        document.querySelector('body').classList.add('light')
+        document.querySelector('body').classList.remove('dark')
+        localStorage.setItem('theme', targetTheme)
+
+    }
+    document.querySelector('body').setAttribute('class', targetTheme)
+    localStorage.setItem('theme', targetTheme);
+    
 }
 
-// check localstorage for theme
-const currentTheme = localStorage.getItem('theme');
+
 
