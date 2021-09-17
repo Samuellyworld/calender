@@ -17,15 +17,15 @@ generateCalendar = (month, year) => {
 
     let days_of_month = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-    calendar_days.innerHTML = ''
+    calendar_days.textContent = ''
 
     let currDate = new Date()
     if (!month) month = currDate.getMonth()
     if (!year) year = currDate.getFullYear()
 
     let curr_month = `${month_names[month]}`
-    month_picker.innerHTML = curr_month
-    calendar_header_year.innerHTML = year
+    month_picker.textContent = curr_month
+    calendar_header_year.textContent = year
 
     // get first day of month
     
@@ -35,7 +35,7 @@ generateCalendar = (month, year) => {
         let day = document.createElement('div')
         if (i >= first_day.getDay()) {
             day.classList.add('calendar-day-hover')
-            day.innerHTML = i - first_day.getDay() + 1
+            day.textContent = i - first_day.getDay() + 1
             day.innerHTML += `<span></span>
                             <span></span>
                             <span></span>
