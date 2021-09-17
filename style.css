@@ -308,3 +308,29 @@ body {
         opacity: 1;
     }
 }
+
+@media screen and (max-width:320px) {
+    .calendar-days div {
+        width: 35px;
+        height: 50px;
+        padding: 5px;
+    }
+    .calendar {
+        width: 310px;
+    }
+    .calendar-header {
+    font-size: 19px;
+    }
+    .month-list > div > div {
+        padding: 3px 9px;
+    }
+}
+
+@media screen and (min-width:360px) {
+    .calendar-days div {
+        width: 39px;
+    }
+    .calendar {
+        width: 350px;
+    }
+}
